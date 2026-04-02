@@ -1,58 +1,41 @@
-🐾 Animal Image Classifier & Assistant
+# 🐾 Animal Image Classifier + Voice Assistant
 
-An AI-powered application that classifies animal images and provides intelligent insights about the detected animal using computer vision and machine learning.
+A complete machine learning web application that classifies animal images using a deep learning model (MobileNetV2) and includes a voice assistant powered by **Groq**. The web app supports batch prediction (multiple images at once) with a modern glassmorphic UI.
 
-🚀 Overview
+## ✨ Features
 
-This project uses deep learning techniques to classify animal images into different categories and acts as an assistant by providing additional information such as species details, habitat, and characteristics.
+- **Animal Classification**: Upload one or multiple animal images and get top-3 predictions with confidence scores.
+- **Batch Prediction**: Process several images in a single request; results include image thumbnails.
+- **User Authentication**: Register/login system with password hashing (Flask-Login).
+- **Premium UI**: Glassmorphism design, drag & drop, image preview, responsive layout.
+- **Voice Assistant** (separate script): Listen to voice commands, answer questions using Groq LLM, open websites, tell time, weather, play music.
+- **Trainable Model**: Transfer learning with MobileNetV2 – easy to retrain on custom animal dataset.
 
-🎯 Features
+## 🧠 Model Details
 
-🖼️ Upload animal images for classification
+- Architecture: **MobileNetV2** (pre-trained on ImageNet) + GlobalAveragePooling2D + Dense(128) + Dropout(0.5) + Softmax.
+- Input size: 224×224×3.
+- Training script: `train_model.py` (supports data augmentation and validation split).
+- Model saved as `animal_model.keras`.
 
-🤖 Deep learning model for accurate predictions
-
-📊 Displays predicted animal name with confidence score
-
-🧠 Provides additional insights (habitat, diet, facts)
-
-🌐 User-friendly interface for real-time interaction
-
-
-🛠️ Tech Stack
-
-Python
-TensorFlow / Keras or PyTorch
-OpenCV (image processing)
-NumPy & Pandas
-Streamlit (UI)
-
-
-🧠 Model Details
-
-Used a CNN (Convolutional Neural Network) for image classification
-Trained on animal image dataset (e.g., Kaggle dataset)
-Applied preprocessing techniques like resizing, normalization, and augmentation
-
-
-📂 Project Structure
-
-animal-classifier/
-│
-├── app.py                # Streamlit app
-├── model/
-│   ├── model.h5         # Trained model
-│
-├── data/
-│   ├── train/
-│   ├── test/
-│
-├── utils/
-│   ├── preprocess.py
-│
-├── requirements.txt
-└── README.md
-
+## 📁 Project Structure
+.
+├── .env # Environment variables (API keys, paths)
+├── requirements.txt # Python dependencies
+├── train_model.py # Train the animal classifier
+├── app.py # Flask web application
+├── voice_assistant.py # Groq‑based voice assistant
+├── animal_model.keras # Trained model (generated after training)
+├── users.db # SQLite user database (auto‑created)
+├── templates/
+│ ├── login.html
+│ ├── register.html
+│ └── dashboard.html
+└── data/
+└── train/ # Training images – one subfolder per animal
+├── Cat/
+├── Dog/
+└── ...
 
 ▶️ How to Run
 
@@ -68,15 +51,29 @@ cd animal-classifier
 
 pip install -r requirements.txt
 
-# Run app
+# Train the Model
 
-streamlit run app.py
+python train_model.py
+
+# Run the Web Application
+
+python app.py
+
+# Run the Voice Assistant
+
+python voice.py
 
 
-📊 Output Example
+🌟 Future Improvements
+Real‑time webcam prediction
 
-Input: Image of a tiger
-Output:
-Prediction: Tiger 🐅
-Confidence: 95%
-Info: Carnivorous animal found in forests and grasslands
+Export prediction results to CSV
+
+User prediction history
+
+Deploy on cloud (Render / Hugging Face Spaces)
+
+Grad‑CAM heatmaps for model explainability
+
+👤 Author
+Made with ❤️ Bobby 
