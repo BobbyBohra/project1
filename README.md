@@ -21,20 +21,35 @@ A complete machine learning web application that classifies animal images using 
 ## 📁 Project Structure
 .
 ├── .env # Environment variables (API keys, paths)
+
 ├── requirements.txt # Python dependencies
+
 ├── train_model.py # Train the animal classifier
+
 ├── app.py # Flask web application
+
 ├── voice_assistant.py # Groq‑based voice assistant
+
 ├── animal_model.keras # Trained model (generated after training)
+
 ├── users.db # SQLite user database (auto‑created)
+
 ├── templates/
+
 │ ├── login.html
+
 │ ├── register.html
+
 │ └── dashboard.html
+
 └── data/
+
 └── train/ # Training images – one subfolder per animal
+
 ├── Cat/
+
 ├── Dog/
+
 └── ...
 
 ▶️ How to Run
