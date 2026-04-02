@@ -7,6 +7,7 @@ An AI-powered application that classifies animal images and provides intelligent
 This project uses deep learning techniques to classify animal images into different categories and acts as an assistant by providing additional information such as species details, habitat, and characteristics.
 
 🎯 Features
+
 🖼️ Upload animal images for classification
 
 🤖 Deep learning model for accurate predictions
@@ -56,19 +57,24 @@ animal-classifier/
 ▶️ How to Run
 
 # Clone repo
+
 git clone https://github.com/your-username/animal-classifier.git
 
 # Go to project folder
+
 cd animal-classifier
 
 # Install dependencies
+
 pip install -r requirements.txt
 
 # Run app
+
 streamlit run app.py
 
 
 📊 Output Example
+
 Input: Image of a tiger
 Output:
 Prediction: Tiger 🐅
